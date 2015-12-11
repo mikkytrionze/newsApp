@@ -1,0 +1,26 @@
+<div class="modal">
+    <ion-header-bar class="bar-calm icon-left">
+        <h1 class="title">{{newsItem.subject}}</h1>
+        <div class="button button-small button-clear" ng-click="modal.hide()"><span class="icon ion-ios-close"></span></div>
+    </ion-header-bar>
+    
+    <ion-content>
+        <ion-list>
+            <ion-item class="item-text-wrap"  >
+                <img class="item-image" ng-src="http://hemencoolapp.orgfree.com/newsApp/views/{{newsItem.image}}" alt="photo" width="370px" />
+
+                <h1 style="text-align:left;color:lightseagreen;">{{newsItem.subject}}</h1>
+                <p style="font-size:11px; color:green;" >{{newsItem.date}}</p>
+                <br>
+                <span ng-bind-html="newsItem.txt" ></span>
+                <br>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</div>
+<!--
+MySQL Main Database name: 1061146 
+MySQL Database username: 1061146 
+MySQL Database password: equal with account password 
+MySQL Database host: localhost 
+-->

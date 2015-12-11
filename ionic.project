@@ -1,0 +1,10 @@
+{
+  "name": "news",
+  "app_id": "126402ae",
+  "proxies": [
+    {
+      "path": "/newsApp",
+      "proxyUrl": "http://www.trionzeapps.byethost7.com/newsApp/"
+    }
+  ]
+}

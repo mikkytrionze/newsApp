@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+      <link rel="stylesheet" href="css/jquery.mobile.flip.min.css">
+      <link rel="stylesheet" href="css/font-lato.css">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    
+    <!-- ionic/angularjs js -->
+    <script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile.flip.min.js"></script>
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+      
+      
+      
+      
+  </head>
+  <body ng-app="starter" ng-init="loadNews();">
+
+      <ion-pane>
+        <ion-header-bar class="bar-calm">
+            <h1 class="title">News App</h1>
+            <button class="icon ion-refresh button button-clear" ng-click="realodApp();"></button>
+        </ion-header-bar>
+
+
+        <ion-content ng-controller="appController" id="tEt">
+          <ion-list id="listing" class="">
+              <div class="flipContent" ng-repeat="item in news" ng-class="
+                  {true:&apos;flipCurrent&apos;, false:&apos;&apos;}[$index==0]" ng-click="readMessage($index)">
+                  <div class="item item-divider"><h2>{{item.subject}}</h2></div>
+                  <ion-item class="item-text-wrap">
+                      <span ng-if="item.image != null">
+                        <img class="item-image" ng-src="http://hemencoolapp.orgfree.com/newsApp/Views/{{item.image}}" alt="photo" width="370px">
+                      </span>
+                      <span ng-if="item.image == null">
+                        <img class="item-image" ng-src="http://placehold.it/370x150" alt="photo" width="370px">
+                      </span>
+                    
+                      <h2 style="font-size:25px!important;text-align:left;font-weight:100; font-family:lato; color:lightseagreen; padding-top:5px;">
+                          {{item.subject | limitTo:30}}{{item.subject.length &gt; 30 ? &apos;&#x2026;&apos;:&apos;&apos;}}</h2>
+                      <p style="font-size:11px; color:green;">{{item.date}}</p>
+                      <br>
+                      <span ng-bind-html="item.txt | limitTo:500"></span>
+                      <span ng-if="item.txt.length &gt; 500">&#x2026;</span>
+                      <br>
+                  </ion-item>
+                  <div class="item">
+                      <i href="#" class="button-icon icon ion-social-facebook-outline"></i>
+                      <i class="button-icon icon ion-social-twitter-outline"></i>
+                      <i class="button-icon icon ion-social-linkedin-outline"></i>
+                      <i class="button-icon icon ion-social-instagram-outline"></i>
+                  </div>
+              </div>
+          </ion-list>
+        </ion-content>
+        
+      </ion-pane>
+    </body>
+</html>
+ 
